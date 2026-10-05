@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Photos Search</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Photo Search</h1>
+      <span class="version"></span>
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Type filename to search..."
+        aria-label="Search filename"
+        autofocus
+      />
+      <button id="searchBtn" aria-label="Search">Search</button>
+    </div>
+
+    <!-- Status -->
+    <div class="status-box">
+      <p id="statusText">Open a Google Photos album</p>
+    </div>
+
+    <!-- Result (hidden by default) -->
+    <div id="result" class="result hidden">
+      <div class="result-info">
+        <span class="result-icon">📷</span>
+        <span id="resultFilename" class="result-filename"></span>
+      </div>
+      <a id="openPhotoBtn" href="#" class="open-btn hidden">Open Photo</a>
+      <p id="scrolledText" class="scrolled-text hidden">Scrolled to photo on page</p>
+    </div>
+
+    <!-- Progress (hidden by default, shows during load) -->
+    <div id="progress" class="progress hidden">
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <p id="progressText">Loading...</p>
+    </div>
+
+    <!-- Footer links -->
+    <div id="footer" class="footer">
+      <button id="loadBtn" class="link-btn">Load all photos</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
