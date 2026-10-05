@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Google Photos Search",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Search photos by filename in Google Photos shared albums",
   "permissions": ["activeTab", "storage"],
   "host_permissions": ["https://photos.google.com/*"],
