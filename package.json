@@ -8,7 +8,8 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "validate:release": "node scripts/validate-release.mjs"
+    "validate:release": "node scripts/validate-release.mjs",
+    "package": "bash scripts/package-extension.sh"
   },
   "keywords": [],
   "author": "quan191",
