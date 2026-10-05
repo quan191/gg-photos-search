@@ -33,7 +33,6 @@ Requests made while loading photo metadata go directly from the browser to Googl
 ## Permissions
 
 - `activeTab`: communicate with the active tab when the user uses the extension.
-- `scripting`: support Chrome extension page interaction where required by the runtime.
 - `storage`: keep temporary popup/session state locally.
 - `https://photos.google.com/*`: run the search workflow on Google Photos pages.
 

@@ -3,7 +3,7 @@
   "name": "Google Photos Search",
   "version": "1.0.0",
   "description": "Search photos by filename in Google Photos shared albums",
-  "permissions": ["activeTab", "scripting", "storage"],
+  "permissions": ["activeTab", "storage"],
   "host_permissions": ["https://photos.google.com/*"],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://photos.google.com"

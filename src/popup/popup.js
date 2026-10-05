@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch {}
 
   // Initialize - try restore state first, then check page
-  const stateRestored = await restoreState();
+  await restoreState();
   await checkPage();
   // If state wasn't restored with results, checkPage status is shown
 
@@ -176,8 +176,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         IS_DEV && console.log('[GGPhotoSearch:Popup] getIndexStatus error:', e);
       }
 
-      // Tell user to load photos for full search
-      setStatus('Click "Load all photos" for full search');
+      // Search can work with visible photos; loading is optional for broader search.
+      setStatus('Ready. Search loaded photos or load more photos.');
     } catch {
       setStatus('Please refresh the page', 'error');
       searchBtn.disabled = true;
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           setStatus(`Found! (${result.count} match${result.count > 1 ? 'es' : ''})`, 'success');
           return;
         } else {
-          setStatus('Not found', 'error');
+          setStatus('Not found in loaded photos', 'error');
           return;
         }
       }
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setStatus(`Found in view (${result.count})`, 'success');
         await sendToContent('scrollTo', { query, matchIndex: 0 });
       } else {
-        setStatus('Load photos first for full search', 'error');
+        setStatus('Not found in loaded photos. Try loading more photos.', 'error');
       }
     } catch (err) {
       setStatus('Search failed: ' + (err.message || 'Unknown error'), 'error');
