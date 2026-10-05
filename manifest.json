@@ -2,7 +2,8 @@
   "manifest_version": 3,
   "name": "Google Photos Search",
   "version": "0.1.0",
-  "description": "Search photos by filename in Google Photos shared albums",
+  "description": "Search photo filenames in the currently open Google Photos page",
+  "homepage_url": "https://github.com/quan191/gg-photos-search",
   "permissions": ["activeTab", "storage"],
   "host_permissions": ["https://photos.google.com/*"],
   "content_security_policy": {
