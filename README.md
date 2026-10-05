@@ -21,7 +21,17 @@ The primary tested workflow is a Google Photos shared album on desktop Chrome. T
 - Optionally load more photo metadata for broader filename searching.
 - Open a matched photo in a new Google Photos tab when a valid photo link is available.
 
-Batch search is planned as a separate secondary feature. It is intentionally not part of the single-search baseline.
+Batch search is available as a separate secondary workflow. Single search remains the default experience.
+
+## Batch search
+
+1. Open the extension popup on a Google Photos page.
+2. Choose **Batch search**.
+3. Paste one filename per line, or separate filenames with commas.
+4. Choose **Find All**.
+5. Review the found/not-found chips and open a found photo when a link is available.
+
+Batch input is limited to 100 unique filenames per search. Batch results are processed locally and are limited by the same Google Photos page/index availability as single search.
 
 ## Install in Chrome Developer Mode
 
@@ -31,11 +41,11 @@ Chrome users normally install extensions from the Chrome Web Store. This project
 2. Extract the ZIP to a permanent folder. Do not select the ZIP file itself.
 3. Open Chrome and visit `chrome://extensions`.
 4. Turn on **Developer mode** in the top-right corner.
-5. Click **Load unpacked**.
+5. Click **Load unpacked**. If Chrome shows a warning, confirm that you trust the source and review the extension permissions.
 6. Select the extracted folder that contains `manifest.json` directly inside it.
 7. Pin **Google Photos Filename Search** from Chrome's Extensions menu.
 8. Open or reload a Google Photos shared album.
-9. Click the extension icon, enter a filename such as `IMG_1234.jpg`, and choose **Search**.
+9. Click the extension icon, enter a filename such as `IMG_1234.jpg`, and choose **Search**. Use **Batch search** for multiple filenames.
 
 The extension is for desktop Chrome. Chrome mobile does not support this installation flow.
 
