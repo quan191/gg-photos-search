@@ -52,9 +52,31 @@
     <!-- Footer links -->
     <div id="footer" class="footer">
       <button id="loadBtn" class="link-btn">Load all photos</button>
+      <span class="separator">•</span>
+      <button id="batchBtn" class="link-btn">Batch search</button>
+    </div>
+
+    <div id="batchMode" class="batch-mode hidden">
+      <button id="backBtn" class="link-btn">← Back to search</button>
+      <textarea
+        id="batchInput"
+        placeholder="Paste filenames (comma or line separated)"
+        rows="4"
+        aria-label="Batch filenames"
+      ></textarea>
+      <button id="findAllBtn">Find All</button>
+      <div id="batchResults" class="batch-results hidden">
+        <div id="chipsContainer" class="chips-container"></div>
+        <p id="batchSummary" class="batch-summary"></p>
+        <button id="copyLinksBtn" class="copy-links-btn hidden" aria-label="Copy all found links">
+          Copy all links
+        </button>
+      </div>
+      <span id="copyToast" class="copy-toast hidden"></span>
     </div>
   </div>
 
+  <script src="batch-mode.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>

@@ -50,11 +50,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   const openPhotoBtn = document.getElementById('openPhotoBtn');
   const scrolledText = document.getElementById('scrolledText');
   const loadBtn = document.getElementById('loadBtn');
+  const batchBtn = document.getElementById('batchBtn');
   const progressEl = document.getElementById('progress');
   const progressFill = document.getElementById('progressFill');
   const progressText = document.getElementById('progressText');
   const versionEl = document.querySelector('.version');
 
+  const batchMode = document.getElementById('batchMode');
+  const backBtn = document.getElementById('backBtn');
+  const searchBox = document.querySelector('.search-box');
+  const statusBox = document.querySelector('.status-box');
   const footer = document.getElementById('footer');
 
   // State
@@ -135,6 +140,21 @@ document.addEventListener('DOMContentLoaded', async () => {
   loadBtn.addEventListener('click', handleLoad);
   openPhotoBtn.addEventListener('click', handleOpenPhoto);
 
+  batchBtn.addEventListener('click', () => {
+    searchBox.classList.add('hidden');
+    statusBox.classList.add('hidden');
+    resultEl.classList.add('hidden');
+    footer.classList.add('hidden');
+    batchMode.classList.remove('hidden');
+  });
+
+  backBtn.addEventListener('click', () => {
+    batchMode.classList.add('hidden');
+    searchBox.classList.remove('hidden');
+    statusBox.classList.remove('hidden');
+    footer.classList.remove('hidden');
+  });
+
   // Listen for load progress
   chrome.runtime.onMessage.addListener((msg) => {
     if (msg.type === 'loadProgress') {
@@ -143,6 +163,17 @@ document.addEventListener('DOMContentLoaded', async () => {
       progressFill.style.width = `${pct}%`;
     }
   });
+
+  window.GGPhotoBatchMode.init({
+    batchInput: document.getElementById('batchInput'),
+    findAllBtn: document.getElementById('findAllBtn'),
+    batchStatusText: statusText,
+    chipsContainer: document.getElementById('chipsContainer'),
+    batchResultsEl: document.getElementById('batchResults'),
+    batchSummary: document.getElementById('batchSummary'),
+    copyLinksBtn: document.getElementById('copyLinksBtn'),
+    copyToast: document.getElementById('copyToast')
+  }, sendToContent, sanitizeSearchQuery, sanitizeForDisplay, isValidPhotoUrl, () => photosLoaded, getPageSessionId);
 
   /** Set status */
   function setStatus(message, type = '') {
