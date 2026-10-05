@@ -1,6 +1,6 @@
 {
-  "name": "gg-photo-search",
-  "version": "1.0.0",
+  "name": "gg-photos-search",
+  "version": "0.1.0",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -10,9 +10,9 @@
     "test:coverage": "jest --coverage"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "quan191",
+  "license": "MIT",
+  "description": "Search photo filenames in the currently open Google Photos page.",
   "devDependencies": {
     "jest": "^30.2.0"
   }

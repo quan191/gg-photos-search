@@ -71,6 +71,7 @@ prompt.md
 ck.md
 
 # Local agent configuration (never commit)
+/.agents/
 /.claude/
 /.codex/
 
@@ -97,6 +98,10 @@ assets/
 
 # External repos for study/reference
 external/
+
+# Local repository tooling and generated manifests
+/.repomixignore
+/release-manifest.json
 
 # Git worktrees (local development only)
 worktrees/
